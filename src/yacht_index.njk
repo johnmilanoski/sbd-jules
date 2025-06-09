@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: Yachts - Sylvia Bolton Design
+---
+<style>
+#index_pic {
+	display:block;
+	margin: 0 20px 25px 0;
+	width:100%;
+	max-width:444px; /* Or adjust as needed for layout */
+	height:auto;
+    border-width: 0px;
+}
+table {
+    width: 100%; /* Optional: makes table take full width of its container */
+    border-collapse: collapse; /* Optional: removes space between cells */
+}
+table tr td {
+	padding:10px;
+    vertical-align: top; /* Aligns content to the top of the cell */
+    text-align: center; /* Centers the image and paragraph */
+}
+</style>
+
+<div class="container">
+	<img src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" style="display:block; margin-top: 20px;"/><BR>
+
+    <div class="columnsContainer">
+        <DIV class="leftColumn" style="border:none;" >
+        <!-- Optional: text here if needed, or remove leftColumn if not used -->
+        </DIV>
+
+        <div class="rightColumn">
+            <table>
+                {% for yacht_row in yachts | batch(2) %}
+                <tr>
+                    {% for yacht in yacht_row %}
+                    <td>
+                        {% if yacht.thumbnail %}
+                        <a href="/yachts/{{ yacht.slug }}/">
+                            <img id="index_pic" src="{{ yacht.thumbnail }}" alt="{{ yacht.name }} thumbnail" />
+                        </a>
+                        <p style="text-align:center;">{{ yacht.name }}</p>
+                        {% else %}
+                        <p style="text-align:center;">{{ yacht.name }}<br>(Thumbnail missing)</p>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                    {% if yacht_row.length < 2 %}<td></td>{# Fill empty cell if odd number of yachts #}
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div> <!--END columnsContainer-->
+    <BR>
+</div>
