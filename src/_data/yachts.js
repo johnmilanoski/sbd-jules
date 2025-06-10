@@ -17,7 +17,7 @@ module.exports = async () => {
   const yachtsData = [];
 
   for (const name of yachtNames) {
-    const imageDirRelative = path.join('img/yachts_complete', name);
+    const imageDirRelative = path.join('assets/img/yachts_complete', name);
     const imageDirAbsolute = path.resolve(__dirname, '..', '..', imageDirRelative); // Relative to project root
 
     let images = [];
@@ -35,18 +35,26 @@ module.exports = async () => {
     const thumbnailExtensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
     let thumbnailPath = null;
     for (const ext of thumbnailExtensions) {
-        const potentialThumbnail = path.join('img/yacht_index_pics', `${thumbnailName}${ext}`);
-        // Check if this thumbnail file exists (relative to project root for fs.promises.stat)
+        // Path for web URL (e.g., /assets/img/yacht_index_pics/MyImage.jpg)
+        const webPathSegment = `assets/img/yacht_index_pics/${thumbnailName}${ext}`;
+        
+        // Path for fs.stat, relative to project root, inside 'src'
+        // (e.g., src/assets/img/yacht_index_pics/MyImage.jpg)
+        const statPath = path.join('src', webPathSegment);
+
         try {
-            await fs.promises.stat(path.resolve(__dirname, '..', '..', potentialThumbnail));
-            thumbnailPath = `/assets/${potentialThumbnail}`;
+            // fs.promises.stat needs a path relative to where the node process is running (project root)
+            // or an absolute path. path.resolve() without __dirname will resolve from CWD.
+            // Assuming CWD is project root for Eleventy builds.
+            await fs.promises.stat(statPath); 
+            thumbnailPath = `/${webPathSegment}`; // Assign the web-accessible path
             break;
         } catch (e) {
             // File doesn't exist with this extension, try next
         }
     }
     if (!thumbnailPath) {
-        console.warn(`Warning: Thumbnail not found for yacht ${name} (expected something like ${thumbnailName}.jpg in img/yacht_index_pics/)`);
+        console.warn(`Warning: Thumbnail not found for yacht ${name} (expected something like ${thumbnailName}.jpg in src/assets/img/yacht_index_pics/)`);
     }
 
 

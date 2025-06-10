@@ -15,9 +15,9 @@ module.exports = async () => {
   const projectsData = [];
 
   for (const name of projectNames) {
-    const imageDirRelative = path.join('img/in_progress', name);
-    // Construct an absolute path relative to the project root for fs operations
-    const imageDirAbsolute = path.resolve(__dirname, '..', '..', imageDirRelative);
+    const imageDirRelative = path.join('assets/img/in_progress', name);
+    // Path for fs.readdir, relative to project root, inside 'src'
+    const imageDirAbsolute = path.join('src', imageDirRelative);
 
     let images = [];
     try {
@@ -28,7 +28,7 @@ module.exports = async () => {
         .filter(file => !/^Thumbnail-/i.test(file) && file !== `${name}.jpg`)
         .sort();
     } catch (err) {
-      console.warn(`Warning: Could not read directory ${imageDirAbsolute} for project ${name}: ${err.message}`);
+      console.warn(`Warning: Could not read directory ${imageDirAbsolute} (resolved from 'src/${imageDirRelative}') for project ${name}: ${err.message}`);
     }
 
     let thumbnailName = name;
@@ -39,17 +39,24 @@ module.exports = async () => {
     const thumbnailExtensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG'];
     let thumbnailPath = null;
     for (const ext of thumbnailExtensions) {
-        const potentialThumbnail = path.join('img/in_progress_index_pics', `${thumbnailName}${ext}`);
+        // Path for web URL (e.g., /assets/img/in_progress_index_pics/MyImage.jpg)
+        const webPathSegment = `assets/img/in_progress_index_pics/${thumbnailName}${ext}`;
+        
+        // Path for fs.stat, relative to project root, inside 'src'
+        // (e.g., src/assets/img/in_progress_index_pics/MyImage.jpg)
+        const statPath = path.join('src', webPathSegment);
+
         try {
-            await fs.promises.stat(path.resolve(__dirname, '..', '..', potentialThumbnail));
-            thumbnailPath = `/assets/${potentialThumbnail}`;
+            // Assuming CWD is project root for Eleventy builds.
+            await fs.promises.stat(statPath); 
+            thumbnailPath = `/${webPathSegment}`; // Assign the web-accessible path
             break;
         } catch (e) {
-            // File doesn't exist with this extension
+            // File doesn't exist with this extension, try next
         }
     }
     if (!thumbnailPath) {
-        console.warn(`Warning: Thumbnail not found for project ${name} (expected something like ${thumbnailName}.jpg in img/in_progress_index_pics/)`);
+        console.warn(`Warning: Thumbnail not found for project ${name} (expected something like ${thumbnailName}.jpg in src/assets/img/in_progress_index_pics/)`);
     }
 
     // Handle slug generation for names like "Juanky_II"
