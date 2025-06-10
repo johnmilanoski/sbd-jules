@@ -2,31 +2,12 @@
 layout: base.njk
 title: Design Development - Sylvia Bolton Design
 ---
-<style>
-#index_pic { /* Reusing index_pic style */
-	display:block;
-	margin: 0 20px 25px 0;
-	width:100%;
-	max-width:444px; /* Or adjust as needed for layout */
-	height:auto;
-    border-width: 0px;
-}
-table { /* Reusing table style */
-    width: 100%;
-    border-collapse: collapse;
-}
-table tr td { /* Reusing table tr td style */
-	padding:10px;
-    vertical-align: top;
-    text-align: center;
-}
-</style>
 
 <div class="container">
-	<img src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" style="display:block; margin-top: 20px;"/><BR>
+	<img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
 
     <div class="columnsContainer">
-        <DIV class="leftColumn" style="border:none;" >
+        <DIV class="in_progress_left_column" >
         <!-- Optional: text here if needed -->
         </DIV>
 
@@ -40,9 +21,9 @@ table tr td { /* Reusing table tr td style */
                         <a href="/design-development/{{ project.slug }}/">
                             <img id="index_pic" src="{{ project.thumbnail }}" alt="{{ project.name }} thumbnail" />
                         </a>
-                        <p style="text-align:center;">{{ project.name }}</p>
+                        <p>{{ project.name }}</p>
                         {% else %}
-                        <p style="text-align:center;">{{ project.name }}<br>(Thumbnail missing)</p>
+                        <p>{{ project.name }}<br>(Thumbnail missing)</p>
                         {% endif %}
                     </td>
                     {% endfor %}

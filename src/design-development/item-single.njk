@@ -8,49 +8,17 @@ permalink: "/design-development/{{ project.slug }}/index.html"
 eleventyComputed:
   title: "{{ project.name }} - Design Development - Sylvia Bolton Design"
 ---
-<style>
-#yacht_image { /* Reusing yacht_image style for consistency */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    max-height: 900px; /* Adjust as needed */
-    object-fit: contain;
-}
-#boat_name { /* Reusing boat_name style */
-    margin-top: 20px;
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: bold;
-}
-.photo_txt { /* Reusing photo_txt style */
-	width:96%;
-	text-align:right;
-	margin-top: -20px;
-}
-
-/* Consider if fixed/absolute positioning for #boat_name is needed, similar to yacht pages */
-/* For now, keeping it simple and non-fixed for project pages */
-@media only screen and (max-width: 840px) {
-    .photo_txt {
-        margin-top:-20px; /* Ensure this is still relevant */
-    }
-}
-</style>
 
 <div class="container">
-    <img src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" style="display:block; margin-top: 20px;" /><BR>
+    <img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
     <div class="columnsContainer">
-        <DIV class="leftColumn" style="border: none;">
+        <DIV class="in_progress_left_column">
             <h2 id="boat_name">{{ project.name }}</h2>
             <!-- Any other specific info for a project could go here -->
         </DIV>
         <div class="rightColumn">
             {% for image_filename in project.images %}
-                <img id='yacht_image' src='{{ project.imageDir }}{{ image_filename }}' alt="{{ project.name }} image {{ loop.index }}" /><BR><div class='photo_txt'>&nbsp;<BR><BR></div>
+                <img id='single_item_main_image' src='{{ project.imageDir }}{{ image_filename }}' alt="{{ project.name }} image {{ loop.index }}" /><BR><div class='photo_txt'>&nbsp;<BR><BR></div>
             {% endfor %}
         </div>
     </div>
