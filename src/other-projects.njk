@@ -1,30 +1,50 @@
 ---
 layout: base.njk
-title: Boutique Refits - Sylvia Bolton Design
+title: Other Projects - Sylvia Bolton Design
 ---
+
+<style>
+#index_pic {
+    display:block;
+    margin: 0 20px 25px 0;
+    width:100%;
+    max-width:444px;
+    height:auto;
+}
+table tr td {
+    padding:10px;
+}
+</style>
 
 <div class="container">
 
 	<img src="/assets/pics/spacer.gif" width="300px" height="12px"/><BR>
 
-	<div class="columnsContainer">
+<div class="columnsContainer">
+	<DIV class="leftColumn" style="border: none;">
+	<!--text here-->
+	</DIV>
 
-<DIV class="leftColumn" >
+	<div class="rightColumn">
+	<table>
+	<tr><td>
+	<a href="/other-projects/highland/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/highland.jpg" width="444" height="291" /></a></td><td>
+	<a href="/other-projects/magnolia/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/magnolia.jpg" width="444" height="291" /></a>
+	</td></tr>
 
-		<!--<img style="float:left; margin:0 20px 10px 0;" src="img/magazine_icon.png" width="100" height="auto" />-->
-<b>Boutique Refits</b><BR>
-Sometimes an interior does not need to be entirely changed, or the boat schedule does not allow more than a short break on shore. This is when you might consider a minimal "boutique" refit to freshen up an interior.
-<BR><BR>
-The projects shown here, reflect how an interior can be transformed, just by adding some accents: new furnishings, fabrics and art selected or commission just for your yacht or home.
-<BR><BR>
-		</DIV>
+	<tr><td>
+	<a href="/other-projects/eastside_hotel/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/eastside_hotel.jpg" width="444" height="291" /></a></td><td>
+<!--	<a href="yacht_display.php?sel=holland"><img id="index_pic" style="border-width: 0px;" src="img/yacht_index_pics/holland.jpg" width="444" height="291" /></a>-->
+	</td></tr>
 
-		<div class="rightColumn">
-			<img id='yacht_image' src='/assets/img/refits/2.jpg' width='1600px' /><BR><hr ><BR>
-			<img id='yacht_image' src='/assets/img/refits/3.jpg' width='1600px' /><BR><hr ><BR>
-			<img id='yacht_image' src='/assets/img/refits/4.jpg' width='1600px' /><BR>
-		</div>
+	</table>
 	</div>
 
+</div> <!--END columnsContainer-->
+
 <BR>
-</div>
+<!-- Footer elements like '© Sylvia Bolton Design - all rights reserved' will be handled by the base.njk template -->
+</div> <!-- /container -->
+
+<!-- The <style> block from the original HTML will be handled in a later step -->
+<!-- Bootstrap core JavaScript and IE10 viewport hack will be handled by base.njk -->
