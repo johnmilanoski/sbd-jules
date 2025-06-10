@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Yachts - Sylvia Bolton Design
+---
+
+<div class="container">
+	<img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
+
+    <div class="columnsContainer">
+        <DIV class="in_progress_left_column" >
+        <!-- Optional: text here if needed, or remove leftColumn if not used -->
+        </DIV>
+
+        <div class="rightColumn">
+            <table>
+                {% for yacht_row in yachts | batch(2) %}
+                <tr>
+                    {% for yacht in yacht_row %}
+                    <td>
+                        {% if yacht.thumbnail %}
+                        <a href="/yachts/{{ yacht.slug }}/">
+                            <img id="index_pic" src="{{ yacht.thumbnail }}" alt="{{ yacht.name }} thumbnail" />
+                        </a>
+                        <p>{{ yacht.name }}</p>
+                        {% else %}
+                        <p>{{ yacht.name }}<br>(Thumbnail missing)</p>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                    {% if yacht_row.length < 2 %}<td></td>{# Fill empty cell if odd number of yachts #}
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div> <!--END columnsContainer-->
+    <BR>
+</div>

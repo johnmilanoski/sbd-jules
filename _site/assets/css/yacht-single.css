@@ -1,0 +1,22 @@
+/* Styles for yachts/yacht-single.njk */
+#fixed_div { /* This style might not be needed if boat name is not fixed */
+	position: fixed;
+	top: 132px;
+	left: 20px;
+}
+
+.tour_icon_image { /* Style for the tour icon image */
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+/* Media query adjustments might be needed if #fixed_div behavior changes */
+@media only screen and (max-width: 840px) {
+    #fixed_div {
+        /* position: absolute; */ /* Example if behavior changes */
+        /* top: 132px; */
+        /* left: 20px; */
+    }
+    /* .photo_txt media query was here, but .photo_txt style is now inherited from item-single.css */
+    /* If .photo_txt needs different responsive behavior ONLY for yacht-single, re-add its media query here */
+}

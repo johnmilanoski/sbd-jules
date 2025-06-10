@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: Design Development - Sylvia Bolton Design
+---
+
+<div class="container">
+	<img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
+
+    <div class="columnsContainer">
+        <DIV class="in_progress_left_column" >
+        <!-- Optional: text here if needed -->
+        </DIV>
+
+        <div class="rightColumn">
+            <table>
+                {% for project_row in inprogress_projects | batch(2) %}
+                <tr>
+                    {% for project in project_row %}
+                    <td>
+                        {% if project.thumbnail %}
+                        <a href="/design-development/{{ project.slug }}/">
+                            <img id="index_pic" src="{{ project.thumbnail }}" alt="{{ project.name }} thumbnail" />
+                        </a>
+                        <p>{{ project.name }}</p>
+                        {% else %}
+                        <p>{{ project.name }}<br>(Thumbnail missing)</p>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                    {% if project_row.length < 2 %}<td></td>{# Fill empty cell if odd number #}{% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div> <!--END columnsContainer-->
+    <BR>
+</div>

@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: yachts
+  size: 1
+  alias: yacht
+permalink: "/yachts/{{ yacht.slug }}/index.html"
+eleventyComputed:
+  title: "{{ yacht.name }} - Sylvia Bolton Design"
+---
+
+<div class="container">
+    <img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
+    <div class="columnsContainer">
+        <DIV class="in_progress_left_column">
+            <h2 id="boat_name">{{ yacht.name }}</h2>
+            {% if yacht.tourUrl %}
+                <p><a href="{{ yacht.tourUrl }}" target="_blank"><img class="tour_icon_image" src="/assets/img/carousel/tour_icon.jpg" alt="Virtual Tour"> View Virtual Tour</a></p>
+            {% endif %}
+        </DIV>
+        <div class="rightColumn">
+            {% for image_filename in yacht.images %}
+                {% if image_filename != "Thumbnail" + yacht.name + ".jpg" and image_filename != "Hattrick-Thumbnail.JPG" %} {# Attempt to exclude known thumbnail patterns #}
+                <img id='single_item_main_image' src='{{ yacht.imageDir }}{{ image_filename }}' alt="{{ yacht.name }} image {{ loop.index }}" /><BR><div class='photo_txt'>&nbsp;<BR><BR></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

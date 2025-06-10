@@ -1,0 +1,25 @@
+---
+layout: base.njk
+pagination:
+  data: inprogress_projects
+  size: 1
+  alias: project
+permalink: "/design-development/{{ project.slug }}/index.html"
+eleventyComputed:
+  title: "{{ project.name }} - Design Development - Sylvia Bolton Design"
+---
+
+<div class="container">
+    <img id="inprogress_spacer" src="/assets/pics/spacer.gif" width="300px" height="12px" alt="" /><BR>
+    <div class="columnsContainer">
+        <DIV class="in_progress_left_column">
+            <h2 id="boat_name">{{ project.name }}</h2>
+            <!-- Any other specific info for a project could go here -->
+        </DIV>
+        <div class="rightColumn">
+            {% for image_filename in project.images %}
+                <img id='single_item_main_image' src='{{ project.imageDir }}{{ image_filename }}' alt="{{ project.name }} image {{ loop.index }}" /><BR><div class='photo_txt'>&nbsp;<BR><BR></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
