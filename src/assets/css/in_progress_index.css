@@ -1,31 +1,30 @@
-/* Styles for the in_progress_index page */
-#index_pic {
-    display: block;
-    margin: 0 20px 25px 0;
-    width: 100%;
-    max-width: 444px; /* Or adjust as needed for layout */
-    height: auto;
-    border-width: 0px;
+.rightColumn {
+  float: left;
+  width: 70%;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table tr td {
-    padding: 10px;
-    vertical-align: top;
-    text-align: center; /* This should make the inline p style redundant */
-}
-
-/* Style for the spacer image - an ID will need to be added to the img tag */
-#inprogress_spacer {
-    display: block;
-    margin-top: 20px;
-}
-
-/* Style for the left column in in_progress_index - class will need to be updated in HTML */
 .in_progress_left_column {
-    border: none;
+  float: left;
+  width: 28%;
+  margin-right: 2%;
+}
+.columnsContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#inprogress_spacer {
+  display: block;
+  margin: 0 auto 12px auto;
+}
+@media (max-width: 950px) {
+  .rightColumn, .in_progress_left_column {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+#inprogress_spacer {
+  width: 100%;
+  max-width: 300px;
+  height: 12px;
 }

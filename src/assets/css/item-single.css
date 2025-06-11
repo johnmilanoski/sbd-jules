@@ -1,31 +1,18 @@
-/* Styles for design-development/item-single.njk */
-#single_item_main_image { /* Styles specific to item-single pages */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    max-height: 900px; /* Adjust as needed */
-    object-fit: contain;
+#single_item_main_image {
+  max-width: 100%;
+  width: 1600px;
+  margin-bottom: 16px;
+  border-radius: 12px;
 }
-
-#boat_name {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .photo_txt {
-    width: 96%;
-    text-align: right;
-    margin-top: -20px;
+  font-size: 1.06em;
+  color: #446699;
+  padding-left: 2px;
+  margin-bottom: 18px;
 }
-
-@media only screen and (max-width: 840px) {
-    .photo_txt {
-        margin-top: -20px; /* Ensure this is still relevant */
-    }
+@media (max-width: 800px) {
+  #single_item_main_image {
+    width: 100%;
+    border-radius: 8px;
+  }
 }

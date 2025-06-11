@@ -1,45 +1,68 @@
-#yacht_image {
-	max-width:1600px;
-	margin: 0 20px 25px 0;
-	width:100%;
-	max-height:auto;
+.leftColumn_design {
+  float: left;
+  width: 45%;
+  min-width: 320px;
+  max-width: 440px;
+  box-sizing: border-box;
 }
-#carousel {
-	max-width: 1600px;
-	margin-left: auto;
-	margin-right: auto;
-	display: block; /* Ensure block display */
-	max-height: 729px; /* Set max height */
-	overflow: hidden; /* Hide overflow if content exceeds max-height */
+.rightColumn_design {
+  float: left;
+  width: 45%;
+  margin-left: 5%;
+  min-width: 300px;
+  max-width: 420px;
+  box-sizing: border-box;
 }
-
-#body_text {
-	position: relative;
-	font-size:15px !important;
-	color: #686868;
-	max-width:700px;
-	padding: 30px 12px 0 16px;
-	margin: 0 auto;
-	}
-
-#sylvia_pic {
-	float:left;
-	max-width:200px;
-	padding-top:20px;
-	margin: 0 20px 25px 0;
-	width:100%;
-	height:auto;
+#sylvia_pic img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  margin-bottom: 18px;
 }
-
-html {
-  height: 100%;
+#boat-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
 }
-body {
- min-height: 100%;
+#boat-reviews img {
+  width: 94px;
+  height: 122px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 6px;
 }
-
-.content-center-wrapper {
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+.panel-yacht {
+  border: 1px solid #eee;
+  background: #fafcff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px 16px;
+}
+.panel-heading {
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+.profile-link img {
+  margin-top: 10px;
+  width: 120px;
+  border-radius: 6px;
+}
+#contact-section {
+  text-align: center;
+  margin: 38px auto 0 auto;
+  padding-top: 18px;
+  border-top: 1px solid #f1f1f1;
+}
+@media (max-width: 950px) {
+  .leftColumn_design, .rightColumn_design {
+    float: none;
+    width: 100%;
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+  #boat-reviews img {
+    width: 80px;
+    height: 110px;
+  }
 }
