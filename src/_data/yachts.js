@@ -17,7 +17,7 @@ module.exports = async () => {
   const yachtsData = [];
 
   for (const name of yachtNames) {
-    const imageDirRelative = path.join('assets/img/yachts_complete', name);
+    const imageDirRelative = path.join('src', 'assets', 'img', 'yachts_complete', name);
     const imageDirAbsolute = path.resolve(__dirname, '..', '..', imageDirRelative); // Relative to project root
 
     let images = [];

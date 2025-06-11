@@ -20,9 +20,9 @@ eleventyComputed:
         </DIV>
         <div class="rightColumn">
             {% for image_filename in yacht.images %}
-                {% if image_filename != "Thumbnail" + yacht.name + ".jpg" and image_filename != "Hattrick-Thumbnail.JPG" %} {# Attempt to exclude known thumbnail patterns #}
-                <img id='single_item_main_image' src='{{ yacht.imageDir }}{{ image_filename }}' alt="{{ yacht.name }} image {{ loop.index }}" /><BR><div class='photo_txt'>&nbsp;<BR><BR></div>
-                {% endif %}
+                <img id="single_item_main_image"
+                    src="{{ yacht.imageDir }}{{ image_filename }}"
+                    alt="{{ yacht.name }} image {{ loop.index }}">
             {% endfor %}
         </div>
     </div>
