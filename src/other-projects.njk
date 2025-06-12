@@ -3,48 +3,37 @@ layout: base.njk
 title: Other Projects - Sylvia Bolton Design
 ---
 
-<style>
-#index_pic {
-    display:block;
-    margin: 0 20px 25px 0;
-    width:100%;
-    max-width:444px;
-    height:auto;
-}
-table tr td {
-    padding:10px;
-}
-</style>
+{% block pagestyles %}
+<link rel="stylesheet" href="/assets/css/index.css">
+{% endblock %}
 
 <div class="container">
-
-	<img src="/assets/pics/spacer.gif" width="300px" height="12px"/><BR>
-
-<div class="columnsContainer">
-	<DIV class="leftColumn" style="border: none;">
-	<!--text here-->
-	</DIV>
-
-	<div class="rightColumn">
-	<table>
-	<tr><td>
-	<a href="/other-projects/highland/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/highland.jpg" width="444" height="291" /></a></td><td>
-	<a href="/other-projects/magnolia/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/magnolia.jpg" width="444" height="291" /></a>
-	</td></tr>
-
-	<tr><td>
-	<a href="/other-projects/eastside_hotel/"><img id="index_pic" style="border-width: 0px;" src="/assets/img/other_index_pics/eastside_hotel.jpg" width="444" height="291" /></a></td><td>
-<!--	<a href="yacht_display.php?sel=holland"><img id="index_pic" style="border-width: 0px;" src="img/yacht_index_pics/holland.jpg" width="444" height="291" /></a>-->
-	</td></tr>
-
-	</table>
-	</div>
-
-</div> <!--END columnsContainer-->
-
-<BR>
-<!-- Footer elements like '© Sylvia Bolton Design - all rights reserved' will be handled by the base.njk template -->
-</div> <!-- /container -->
-
-<!-- The <style> block from the original HTML will be handled in a later step -->
-<!-- Bootstrap core JavaScript and IE10 viewport hack will be handled by base.njk -->
+  <div class="columnsContainer">
+    <div class="leftColumn" style="border: none;">
+      <!-- Optional: add a description or text here -->
+    </div>
+    <div class="rightColumn">
+      <div class="yacht-gallery">
+        <div class="yacht-item">
+          <a href="/other-projects/highland/">
+            <img src="/assets/img/other_index_pics/highland.jpg" alt="Highland Project" />
+          </a>
+        </div>
+        <div class="yacht-item">
+          <a href="/other-projects/magnolia/">
+            <img src="/assets/img/other_index_pics/magnolia.jpg" alt="Magnolia Project" />
+          </a>
+        </div>
+        <div class="yacht-item">
+          <a href="/other-projects/eastside_hotel/">
+            <img src="/assets/img/other_index_pics/eastside_hotel.jpg" alt="Eastside Hotel Project" />
+          </a>
+        </div>
+        <div class="yacht-item">
+          <!-- Optionally add a fourth project or leave blank for grid symmetry -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,29 +1,22 @@
 ---
 layout: base.njk
-title: Design Process - Sylvia Bolton Design
+title: Design Development - Sylvia Bolton Design
 ---
+{% block pagestyles %}
+<link rel="stylesheet" href="/assets/css/index.css">
+{% endblock %}
 
-<div class="columnsContainer">
+<main class="main-content">
+  <div class="yacht-gallery">
+    {% for project in inprogress_projects %}
+      {% if project.thumbnail %}
+        <div class="yacht-item">
+          <a href="/design-development/{{ project.slug }}/">
+            <img src="{{ project.thumbnail }}" alt="{{ project.name }} thumbnail" />
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</main>
 
-<DIV class="leftColumn" >
-
-		<!--<img style="float:left; margin:0 20px 10px 0;" src="img/magazine_icon.png" width="100" height="auto" />-->
-<b>Process of Design</b><BR>
-Our design process starts with understanding your vision. We explore your style, personality and taste — listening carefully so that we understand what you are looking for. Next we create sketches and layouts of the spaces and furnishings. Once the basic theme is determined, we can produce renderings of the design or conceptual presentations so you can see how the finished spaces will look. We assemble material boards to illustrate color palettes and demonstrate the tactile feel and finishes. On a yacht, space is usually scarce and always an important commodity. Our understanding of how to use space to its full potential will improve both the livability and appeal of the interior.
-<BR>
-Sylvia's swift free-hand sketching (a tribute to her fine art training), combined with architectural drawings and digital renderings skills, give her the ability to ensure the designs are precisely defined and construction is accurately implemented. We work with trusted boat builders, craftsmen and vendors. We manage the ordering, delivery, and installation of all interior components related to our projects. Our design sources contribute the most appropriate equipment, furniture and accoutrements from around the world — and if they don’t exist, we promptly design them and have them fabricated for you. We work with each client to bring together all essential elements — spaces, illumination, equipment, furnishings and art — sculpted into a harmonious whole. <i>We bring your visions to life.</i>
-<BR><BR>
-		</DIV>
-		<div class="rightColumn">
-			<img id='yacht_image' src='/assets/img/design/1.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/2.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/3.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/4.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/5.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/6.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/7.jpg' width='1600px' /><BR>
-			<img id='yacht_image' src='/assets/img/design/9.jpg' width='1600px' /><BR>
-		</div>
-	</div>
-<BR>
-</div>
