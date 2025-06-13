@@ -14,7 +14,7 @@ layout: base.njk
       {% if yacht.thumbnail %}
         <div class="yacht-item">
           <a href="/yachts/{{ yacht.slug }}/">
-            <img src="{{ yacht.thumbnail }}" alt="{{ yacht.name }} thumbnail" />
+            <img src="{{ yacht.thumbnail }}" srcset="{{ yacht.thumbnail }}" alt="{{ yacht.name }} thumbnail" loading="lazy" />
           </a>
         </div>
       {% endif %}
