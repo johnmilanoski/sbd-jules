@@ -24,3 +24,11 @@
   margin-right: 7px;
   vertical-align: middle;
 }
+
+#boat_name {
+  position: fixed;
+  top: 75px;
+  left: 60px;
+  z-index: 1000;
+  background: #fff;
+}
