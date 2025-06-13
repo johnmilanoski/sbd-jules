@@ -1,4 +1,4 @@
-const loadGallery = require('./helpers/load-gallery');
+const loadGallery = require('../helpers/load-gallery');
 
 module.exports = async () => {
   const projectNames = [
