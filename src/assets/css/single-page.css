@@ -26,9 +26,12 @@
 }
 
 #boat_name {
+  font-size:14px;
+  padding: 8px 100% 5px 75px;
+  background-color:#151a28; 
+  color:white;
   position: fixed;
-  top: 75px;
-  left: 60px;
+  top: 70px;
+  left: 0px;
   z-index: 1000;
-  background: #fff;
 }
