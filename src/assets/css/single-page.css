@@ -4,15 +4,23 @@
   margin-bottom: 16px;
   border-radius: 12px;
 }
+
 .photo_txt {
   font-size: 1.06em;
   color: #446699;
   padding-left: 2px;
   margin-bottom: 18px;
 }
+
 @media (max-width: 800px) {
   #single_item_main_image {
     width: 100%;
     border-radius: 8px;
   }
+}
+
+.tour_icon_image {
+  width: 40px;
+  margin-right: 7px;
+  vertical-align: middle;
 }
