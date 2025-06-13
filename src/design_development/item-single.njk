@@ -17,7 +17,7 @@ eleventyComputed:
         </DIV>
         <div class="rightColumn">
             {% for image_filename in project.images %}
-                <img id='single_item_main_image' src='{{ project.imageDir }}{{ image_filename }}' alt="{{ project.name }} image {{ loop.index }}" /><BR></div>
+                <img id='single_item_main_image' src='{{ project.imageDir }}{{ image_filename }}' alt="{{ project.name }} image {{ loop.index }}" /><BR>
             {% endfor %}
         </div>
     </div>
