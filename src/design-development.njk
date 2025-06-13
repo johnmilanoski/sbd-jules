@@ -12,7 +12,7 @@ title: Design Development - Sylvia Bolton Design
       {% if project.thumbnail %}
         <div class="yacht-item">
           <a href="/design-development/{{ project.slug }}/">
-            <img src="{{ project.thumbnail }}" alt="{{ project.name }} thumbnail" />
+            <img src="{{ project.thumbnail }}" srcset="{{ project.thumbnail }}" alt="{{ project.name }} thumbnail" loading="lazy" />
           </a>
         </div>
       {% endif %}
