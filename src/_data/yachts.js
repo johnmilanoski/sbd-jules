@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const loadGallery = require('./helpers/load-gallery');
 
 module.exports = async () => {
   const yachtNames = [
@@ -14,59 +13,18 @@ module.exports = async () => {
     'premier': 'https://my.matterport.com/models/xGw4Epropox'
   };
 
-  const yachtsData = [];
+  const gallery = await loadGallery('yachts_complete', yachtNames, {
+    thumbnailDir: 'yacht_index_pics',
+    thumbnailNameOverrides: { 'Hat Trick': 'HatTrick' },
+    thumbnailExtensions: ['.jpg', '.JPG', '.jpeg', '.JPEG']
+  });
 
-  for (const name of yachtNames) {
-    const imageDirRelative = path.join('src', 'assets', 'img', 'yachts_complete', name);
-    const imageDirAbsolute = path.resolve(__dirname, '..', '..', imageDirRelative); // Relative to project root
-
-    let images = [];
-    try {
-      const files = await fs.promises.readdir(imageDirAbsolute);
-      images = files.filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file))
-                    .sort(); // Sort alphabetically
-    } catch (err) {
-      console.warn(`Warning: Could not read directory ${imageDirAbsolute} for yacht ${name}: ${err.message}`);
-    }
-
-    // Determine thumbnail path
-    // Handle "Hat Trick" specifically for thumbnail name "HatTrick.jpg"
-    const thumbnailName = name === 'Hat Trick' ? 'HatTrick' : name;
-    const thumbnailExtensions = ['.jpg', '.JPG', '.jpeg', '.JPEG'];
-    let thumbnailPath = null;
-    for (const ext of thumbnailExtensions) {
-        // Path for web URL (e.g., /assets/img/yacht_index_pics/MyImage.jpg)
-        const webPathSegment = `assets/img/yacht_index_pics/${thumbnailName}${ext}`;
-        
-        // Path for fs.stat, relative to project root, inside 'src'
-        // (e.g., src/assets/img/yacht_index_pics/MyImage.jpg)
-        const statPath = path.join('src', webPathSegment);
-
-        try {
-            // fs.promises.stat needs a path relative to where the node process is running (project root)
-            // or an absolute path. path.resolve() without __dirname will resolve from CWD.
-            // Assuming CWD is project root for Eleventy builds.
-            await fs.promises.stat(statPath); 
-            thumbnailPath = `/${webPathSegment}`; // Assign the web-accessible path
-            break;
-        } catch (e) {
-            // File doesn't exist with this extension, try next
-        }
-    }
-    if (!thumbnailPath) {
-        console.warn(`Warning: Thumbnail not found for yacht ${name} (expected something like ${thumbnailName}.jpg in src/assets/img/yacht_index_pics/)`);
-    }
-
-
-    yachtsData.push({
-      name: name,
-      slug: name.toLowerCase().replace(/\s+/g, '-'),
-      imageDir: `/assets/img/yachts_complete/${name}/`,
-      thumbnail: thumbnailPath,
-      images: images,
-      tourUrl: tourUrls[name.toLowerCase()] || null
-    });
-  }
-
-  return yachtsData;
+  return gallery.map(item => ({
+    name: item.name,
+    slug: item.name.toLowerCase().replace(/\s+/g, '-'),
+    imageDir: item.imageDir,
+    thumbnail: item.thumbnail,
+    images: item.images,
+    tourUrl: tourUrls[item.name.toLowerCase()] || null
+  }));
 };
