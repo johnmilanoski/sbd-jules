@@ -26,8 +26,9 @@
 }
 
 #boat_name {
-  position: sticky;
+  position: fixed;
   top: 75px;
+  left: 60px;
   z-index: 1000;
   background: #fff;
 }
