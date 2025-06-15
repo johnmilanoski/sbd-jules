@@ -15,9 +15,9 @@
 	<div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="{% if page.url == '/' %}active{% endif %}"><a href="/">HOME</a></li>
-            <li class="{% if page.url == '/yachts/' %}active{% endif %}"><a href="/yachts/" role="button" aria-haspopup="true" aria-expanded="false">YACHTS </a></li>
-            <li class="{% if page.url == '/design-development/' %}active{% endif %}"><a href="/design-development/">DESIGN DEVELOPMENT</a></li>
-            <li class="{% if page.url == '/other-projects/' %}active{% endif %}"><a href="/other-projects/">OTHER PROJECTS</a></li>
+            <li class="{% if page.url.startsWith('/yachts/') %}active{% endif %}"><a href="/yachts/" role="button" aria-haspopup="true" aria-expanded="false">YACHTS </a></li>
+            <li class="{% if page.url.startsWith('/design-development/') %}active{% endif %}"><a href="/design-development/">DESIGN DEVELOPMENT</a></li>
+            <li class="{% if page.url.startsWith('/other-projects/') %}active{% endif %}"><a href="/other-projects/">OTHER PROJECTS</a></li>
 
             <li class="dropdown {% if page.url == '/about/studio/' or page.url == '/about/design-process/' %}active{% endif %}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT <span class="caret"></span></a>
