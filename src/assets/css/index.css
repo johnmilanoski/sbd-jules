@@ -64,3 +64,16 @@
   transition: background 0.2s;
 }
 
+/* Text block styling below the main carousel - mirrors the legacy site at sylviabolton.com */ 
+#body_text {
+  position: relative;
+  font-size: 15px;
+  color: #686868;
+  max-width: 700px;
+  padding: 30px 12px 0 16px;
+  margin: 0 auto;
+}
+#body_text ul {
+  list-style-type: none;
+  padding-left: 0;
+}
