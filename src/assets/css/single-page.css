@@ -1,14 +1,14 @@
 #single_item_main_image {
   max-width: 100%;
   width: 1600px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   border-radius: 0px;
 }
 
 .photo_txt {
   font-size: 1.06em;
   color: #446699;
-  padding-left: 2px;
+  padding-left: 12px;
   margin-bottom: 18px;
 }
 
@@ -26,12 +26,20 @@
 }
 
 #boat_name {
-  font-size:14px;
-  padding: 8px 100% 5px 75px;
-  background-color:#151a28; 
-  color:white;
+  font-size: 16px;
+  font-style:italic;
+  padding: 8px 0 5px 75px;
+  /* Fading bar background: solid for 80%, fades out for last 20% */
+  background: linear-gradient(to right, #151a28 20%, rgba(21,26,40,0));
+  color: white;
   position: fixed;
   top: 70px;
   left: 0px;
+  width: 100vw; /* Full viewport width */
   z-index: 1000;
+  white-space: nowrap;            /* Single line */
+  overflow: hidden;               /* Hide overflow */
+  text-overflow: ellipsis;        /* Show ... if overflow */
+  box-sizing: border-box;         /* Prevent extra width from padding */
 }
+
