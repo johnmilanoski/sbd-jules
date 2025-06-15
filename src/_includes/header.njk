@@ -14,20 +14,20 @@
         </div>
 	<div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">HOME</a></li>
-            <li><a href="/yachts/" role="button" aria-haspopup="true" aria-expanded="false">YACHTS </a></li>
-            <li><a href="/design-development/">DESIGN DEVELOPMENT</a></li>
-            <li><a href="/other-projects/">OTHER PROJECTS</a></li>
+            <li class="{% if page.url == '/' %}active{% endif %}"><a href="/">HOME</a></li>
+            <li class="{% if page.url == '/yachts/' %}active{% endif %}"><a href="/yachts/" role="button" aria-haspopup="true" aria-expanded="false">YACHTS </a></li>
+            <li class="{% if page.url == '/design-development/' %}active{% endif %}"><a href="/design-development/">DESIGN DEVELOPMENT</a></li>
+            <li class="{% if page.url == '/other-projects/' %}active{% endif %}"><a href="/other-projects/">OTHER PROJECTS</a></li>
 
-            <li class="dropdown">
+            <li class="dropdown {% if page.url == '/about/studio/' or page.url == '/about/design-process/' %}active{% endif %}">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT <span class="caret"></span></a>
              <ul class="dropdown-menu">
-				<LI><a href="/about/studio/">THE STUDIO</a></li>
-                <li><a href="/about/design-process/">DESIGN PROCESS</a></li>
+                                <li class="{% if page.url == '/about/studio/' %}active{% endif %}"><a href="/about/studio/">THE STUDIO</a></li>
+                <li class="{% if page.url == '/about/design-process/' %}active{% endif %}"><a href="/about/design-process/">DESIGN PROCESS</a></li>
           </ul>
             </li>
-			<li><a href="/contact/">CONTACT</a></li>
-			<!--<li><a href="https://www.facebook.com/sylvia.bolton.3?fref=ts" target="_blank"><img id="facebook_icon" style="border-width: 0px;" src="img/fb_icon.png" width="20" height="20" /></a></li>-->
+                        <li class="{% if page.url == '/contact/' %}active{% endif %}"><a href="/contact/">CONTACT</a></li>
+                        <!--<li><a href="https://www.facebook.com/sylvia.bolton.3?fref=ts" target="_blank"><img id="facebook_icon" style="border-width: 0px;" src="img/fb_icon.png" width="20" height="20" /></a></li>-->
       </ul>
           <!--<ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>
