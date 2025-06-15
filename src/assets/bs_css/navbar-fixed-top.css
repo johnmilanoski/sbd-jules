@@ -40,6 +40,9 @@ color:#82b5ef;
 .active {
 background-color:#151a28;
 }
+.navbar-nav > .active > a {
+  color:#82b5ef;
+}
 
 .dropdown-menu {
 background-color:#151a28;
