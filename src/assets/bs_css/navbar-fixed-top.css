@@ -42,6 +42,7 @@ background-color:#151a28;
 }
 .navbar-nav > .active > a {
   color:#82b5ef;
+  text-decoration: underline;
 }
 
 .dropdown-menu {
